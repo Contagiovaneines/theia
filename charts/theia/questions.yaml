@@ -1,0 +1,44 @@
+categories:
+  - application
+questions:
+  - variable: image.defaultImage
+    default: "true"
+    description: "Use default Nginx image"
+    label: "Use Default Image"
+    type: boolean
+    show_subquestion_if: false
+    group: "Images"
+    subquestions:
+      - variable: image.repository
+        default: nginx
+        description: "Informe a imagem da aplicação"
+        type: string
+        label: "Informe a imagem"
+        group: "Images"
+      - variable: image.tag
+        default: 1.16.0
+        description: "Informe a tag da imagem"
+        type: string
+        label: "Informe a tag"
+        group: "Images"
+
+  - variable: autoscaling.enabled
+    default: "false"
+    description: "HPA Config"
+    label: "Use HPA"
+    type: boolean
+    show_subquestion_if: true
+    group: "HPA"
+    subquestions:
+      - variable: autoscaling.minReplicas
+        default: 1
+        description: "Informe a quantidade mínima de replicas"
+        type: int
+        label: "Informa min Replicas"
+        group: "HPA"
+      - variable: autoscaling.maxReplicas
+        default: 100
+        description: "Informe a quantidade máxima de replicas"
+        type: int
+        label: "Informa max Replicas"
+        group: "HPA"
