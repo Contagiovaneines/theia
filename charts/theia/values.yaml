@@ -100,11 +100,11 @@ configMap:
 
 
 persistence:
-  name: "volume-theia"
+  name: volume-theia
   enabled: true
   accessModes:
     - ReadWriteOnce
-  size: 1Gi
+  size: 10Gi
 
 volumes:
 - name: script
