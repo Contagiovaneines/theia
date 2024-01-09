@@ -42,17 +42,13 @@ spec:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
-
-
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
-
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- if .Values.secret.create }}
-
           envFrom: 
           - secretRef:
               name: {{ .Values.secret.name | default (include "theia.fullname" .) }}
@@ -66,8 +62,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
       {{- end }}
       {{- with .Values.volumes }}
-
-
       volumes:
         {{- toYaml . | nindent 8 }}
       {{- end }}
