@@ -9,8 +9,8 @@ spec:
   accessModes: 
   - ReadWriteOnce
   resources:
-  requests:
-    storage: {{ .Values.persistence.size }}
+    requests:
+      storage: {{ .Values.persistence.size }}
   volumeMode: Filesystem
 
 

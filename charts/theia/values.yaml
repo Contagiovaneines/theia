@@ -9,7 +9,6 @@ image:
   pullPolicy: IfNotPresent
   tag: "latest"
 
-strategyType: Recreate
 
 imagePullSecrets: []
 nameOverride: ""
@@ -104,7 +103,7 @@ persistence:
   enabled: true
   accessModes:
     - ReadWriteOnce
-  size: 10Gi
+  size: 1Gi
 
 volumes:
 - name: script

@@ -8,8 +8,7 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
-  strategy:
-    type: {{ .Values.strategyType}}
+  strategyType: Recreate
   selector:
     matchLabels:
       {{- include "theia.selectorLabels" . | nindent 6 }}
