@@ -8,10 +8,10 @@ metadata:
 spec:
   accessModes: 
   - ReadWriteOnce
-resources:
+  resources:
   requests:
     storage: {{ .Values.persistence.size }}
-volumeMode: Filesystem
+  volumeMode: Filesystem
 
 
 {{- end -}}
