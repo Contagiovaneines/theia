@@ -51,11 +51,11 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      {{- with .Values.volumes }}
-
-             envFrom: 
-          - secretRef:
-              name: {{ .Values.secret.name | default (include "theia.fullname" .) }}
+         
+          {{- if .Values.secret.create }}
+          envFrom: 
+            - secretRef:
+                name: {{ .Values.secret.name | default (include "theia.fullname" .) }}
           {{- end }}
           {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
