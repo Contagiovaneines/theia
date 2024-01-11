@@ -52,13 +52,13 @@ spec:
           - secretRef:
               name: {{ .Values.secret.name | default (include "theia.fullname" .) }}
           {{- end }}
-          {{- if .Values.livenessProbe.enabled }}
+          {{- with .Values.livenessProbe }}
           livenessProbe:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- if .Values.readinessProbe.enabled }}
+          {{- with .Values.readinessProbe }}
           readinessProbe:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
       {{- end }}
       {{- with .Values.volumes }}
       volumes:
